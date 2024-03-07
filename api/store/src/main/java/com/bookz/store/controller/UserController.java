@@ -8,10 +8,7 @@ public class UserController {
 
     @PostMapping()
     public String createUser(@RequestBody String user){
-        return "User created mama mia cassela!dbhvnl" +
-                " " +
-                "horrray!" +
-                "joanan";
+        return "User created mama mia cassela!dbhvnl";
     }
 
 }
