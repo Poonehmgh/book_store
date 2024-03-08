@@ -13,15 +13,9 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    @Autowired
-    private BookRepo bookRepo;
-
-
     public void addUser(Userr user){
         userRepo.save(user);
     }
 
-    public void addBook(Book book){
-        bookRepo.save(book);
-    }
+
 }
