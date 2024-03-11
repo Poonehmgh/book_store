@@ -55,4 +55,11 @@ public class UserController {
         this.bookService.deleteBookByName(book.getName());
     }
 
+    @GetMapping("/search")
+    public List<Book> searchBooks(@RequestParam(required = false) String name, @RequestParam(required = false) String author, @RequestParam(required = false) Integer publishedAt){
+
+        return bookService.searchBooks(name, author, publishedAt);
+
+    }
+
 }

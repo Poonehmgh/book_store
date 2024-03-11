@@ -2,7 +2,9 @@ package com.bookz.store.service;
 
 import com.bookz.store.model.Book;
 import com.bookz.store.repo.BookRepo;
+import com.bookz.store.repo.BookSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,7 +47,6 @@ public class BookService {
     }
 
     public void deleteBookByName(String name){
-        System.out.println("JJJJJJJJ "+ name);
         Optional<Book> bookOpts= this.bookRepo.findByName(name);
         if (bookOpts.isPresent()){
             Book existingBook = bookOpts.get();
@@ -53,5 +54,13 @@ public class BookService {
         }
         else
             throw new RuntimeException("No such book was found to be deleted: " + name);
+    }
+
+    public List<Book> searchBooks(String name, String author, Integer year){
+//        return this.bookRepo.findByNameContaining(name);
+        Specification<Book> spec = Specification.where(BookSpecification.hasName(name))
+                .and(BookSpecification.hasAuthor(author))
+                .and(BookSpecification.hasPublishedAt(year));
+        return this.bookRepo.findAll(spec);
     }
  }
