@@ -48,5 +48,11 @@ public class Book {
     public Integer getPublishedAt() {
         return publishedAt;
     }
+    public Book(String name, String author, Integer publishedAt){
+        this.name = name;
+        this.author = author;
+        this.publishedAt = publishedAt;
+    }
+    public Book(){}
 
 }

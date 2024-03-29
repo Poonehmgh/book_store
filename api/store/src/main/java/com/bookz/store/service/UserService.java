@@ -1,9 +1,7 @@
 package com.bookz.store.service;
 
-import com.bookz.store.UserRepo;
-import com.bookz.store.model.Book;
+import com.bookz.store.repo.UserRepo;
 import com.bookz.store.model.Userr;
-import com.bookz.store.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
