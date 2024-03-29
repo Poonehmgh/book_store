@@ -77,13 +77,12 @@ class BookServiceTest {
     public void getBookWhenNoInput(){
         MockitoAnnotations.initMocks(this);
 
-        BookRepo bookRepo = mock(BookRepo.class);
         Book testBook = new Book("test", "test", 1999);
 
         when(bookRepo.findByName("test")).thenReturn(Optional.of(testBook));
         Optional<Book>  result = bookService.getBook("test");
 
-        assertEquals(Optional.of(testBook), result);
+        assertEquals(testBook, result.get());
         verify(bookRepo).findByName("test");
 
     }
